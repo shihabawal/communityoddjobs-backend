@@ -1,2 +1,4 @@
 Design.~ml
 token
+.env
+node_modules/
