@@ -29,7 +29,7 @@ exports.user_create = async function (req, res) {
 
     user.save(function (err) {
         if (err) {
-            res.send('An error occured. ' + err.message && err.message)
+            res.send(`An error occured. ${err.message && err.message}`)
             return;
         } else {
             res.send('User created successfully');
@@ -58,7 +58,7 @@ exports.admin_create = async function (req, res) {
 
     user.save(function (err) {
         if (err) {
-            res.send('An error occured. ' + err.message && err.message)
+            res.send(`An error occured. ${err.message && err.message}`)
             return;
         } else {
             res.send('Admin created successfully');
@@ -69,7 +69,7 @@ exports.admin_create = async function (req, res) {
 exports.login = function (req, res) {
     User.findOne({ email: req.body.email }, (err, doc) => {
         if (err) {
-            res.send('An error occured. ' + err.message && err.message);
+            res.send(`An error occured. ${err.message && err.message}`);
             return;
         } else {
             // if email found ... 
@@ -89,48 +89,62 @@ exports.login = function (req, res) {
 }
 
 exports.user_edit = function (req, res) {
-    User.findById(req.body.adminId, (err, doc) => {
-        if (err) {
-            res.send('An error occured. ' + err.message && err.message);
-            return;
-        } else {
-            if (doc) {
-                if (doc.admin) {
-                    User.findOneAndUpdate({ email: req.body.user.email }, { ...req.body.user }, (err) => {
-                        if (err) {
-                            res.send('An Error occured. ' + err.message && err.message);
-                        } else {
-                            res.send('Updated successfully')
-                        }
-                    });
-                } else {
-                    res.send('Not allowed');
-                }
+    checkAdmin(req, res, (req, res) => {
+        User.findOneAndUpdate({ email: req.body.user.email }, { ...req.body.user }, (err) => {
+            if (err) {
+                res.send(`An error occured. ${err.message && err.message}`);
             } else {
-                res.send('Not found');
+                res.send('Updated successfully')
             }
-        }
-    })
+        });
+    });
 }
 
 exports.user_email_delete = function (req, res) {
-    User.findOneAndRemove({ email: req.body.email }, function (err, doc) {
-        if (err) {
-            res.send('An error occured. ' + err.message && err.message)
-            return;
-        } else {
-            res.send('Deleted successfully');
-        }
-    })
+    checkAdmin(req, res, (req, res) => {
+        User.findOneAndRemove({ email: req.body.email }, function (err, doc) {
+            if (err) {
+                res.send(`An error occured. ${err.message && err.message}`)
+                return;
+            } else {
+                res.send('Deleted successfully');
+            }
+        })
+    });
 };
 
 exports.user_delete = function (req, res) {
-    User.findByIdAndRemove(req.params.id, function (err) {
-        if (err) {
-            res.send('An error occured. ' + err.message && err.message)
-            return;
-        } else {
-            res.send('Deleted successfully');
-        }
-    })
+    checkAdmin(req, res, (req, res) => {
+        User.findByIdAndRemove(req.params.id, function (err) {
+            if (err) {
+                res.send(`An error occured. ${err.message && err.message}`)
+                return;
+            } else {
+                res.send('Deleted successfully');
+            }
+        })
+    });
 };
+
+var checkAdmin = (req, res, callback) => {
+    if (req.body.adminId && req.body.adminId) {
+        User.findById(req.body.adminId, (err, doc) => {
+            if (err) {
+                res.send(`An error occured. ${err.message && err.message}`);
+                return;
+            } else {
+                if (doc) {
+                    if (doc.admin) {
+                        callback(req, res);
+                    } else {
+                        res.send('Not allowed');
+                    }
+                } else {
+                    res.send('Not found');
+                }
+            }
+        });
+    } else {
+        res.send('Not admin');
+    }
+}
