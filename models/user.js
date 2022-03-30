@@ -12,7 +12,7 @@ var UserSchema = new Schema({
     name: { type: String, required: true },
     address: { type: AddressSchema, required: true },
     contact: { type: Number, required: true },
-    location: { type: String, required: true },
+    location: { type: String },
     email: { type: String, required: true },
     password: { type: String, required: true },
     admin: { type: Boolean, required: true },
