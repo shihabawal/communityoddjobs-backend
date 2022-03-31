@@ -8,6 +8,7 @@ var cors = require('cors')
 
 const productRouter = require('./routes/product');
 const userRouter = require('./routes/user');
+const listingRouter = require('./routes/jobListing');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/product', productRouter);
 app.use('/user', userRouter);
+app.use('/listing', listingRouter);
 
 const port = process.env.MONGODB_PORT;
 

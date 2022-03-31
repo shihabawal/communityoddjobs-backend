@@ -1,15 +1,16 @@
 var User = require('../models/user');
+var utils = require('./utils');
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
-    res.send({ status: "success", message: 'Greetings from the User controller!' });
+    res.send({ status: 'success', message: 'Greetings from the User controller!' });
 };
 
 exports.user_create = async function (req, res) {
     // check if user exists and wait
     var email = await User.findOne({ email: req.body.email }).exec();
     if (email) {
-        res.send({ status: "error", message: 'Email already exists' });
+        res.send({ status: 'error', message: 'Email already exists' });
         return;
     }
 
@@ -25,10 +26,10 @@ exports.user_create = async function (req, res) {
 
     user.save(function (err, doc) {
         if (err) {
-            res.send({ status: "error", message: `An error occured. ${err.message && err.message}` })
+            res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
             return;
         } else {
-            res.send({ status: "success", message: "User created", data: doc });
+            res.send({ status: 'success', message: 'User created', data: doc });
         }
     });
 }
@@ -37,7 +38,7 @@ exports.admin_create = async function (req, res) {
     var email = await User.findOne({ email: req.body.email }).exec();
 
     if (email) {
-        res.send({ status: "error", message: 'Admin email already exists' });
+        res.send({ status: 'error', message: 'Admin email already exists' });
         return;
     }
 
@@ -53,10 +54,10 @@ exports.admin_create = async function (req, res) {
 
     user.save(function (err) {
         if (err) {
-            res.send({ status: "error", message: `An error occured. ${err.message && err.message}` })
+            res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
             return;
         } else {
-            res.send({ status: "success", message: 'Admin created successfully' });
+            res.send({ status: 'success', message: 'Admin created successfully' });
         }
     });
 }
@@ -64,7 +65,7 @@ exports.admin_create = async function (req, res) {
 exports.login = function (req, res) {
     User.findOne({ email: req.body.email }, (err, doc) => {
         if (err) {
-            res.send({ status: "error", message: `An error occured. ${err.message && err.message}` });
+            res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` });
             return;
         } else {
             // if email found ... 
@@ -72,74 +73,51 @@ exports.login = function (req, res) {
                 // ... check password
                 if (doc.password === req.body.password) {
                     // if correct return user details
-                    res.send({ status: "success", message: "Logged in", data: doc });
+                    res.send({ status: 'success', message: 'Logged in', data: doc });
                 } else {
-                    res.send({ status: "error", message: 'Incorrect email or password' });
+                    res.send({ status: 'error', message: 'Incorrect email or password' });
                 }
             } else {
-                res.send({ status: "error", message: 'Incorrect email or password' });
+                res.send({ status: 'error', message: 'Incorrect email or password' });
             }
         }
     })
 }
 
 exports.user_edit = function (req, res) {
-    checkAdmin(req, res, (req, res) => {
+    utils.checkAdmin(req, res, (req, res) => {
         User.findOneAndUpdate({ email: req.body.user.email }, { ...req.body.user }, (err) => {
             if (err) {
-                res.send({ status: "error", message: `An error occured. ${err.message && err.message}` });
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` });
             } else {
-                res.send({ status: "success", message: 'Updated successfully' })
+                res.send({ status: 'success', message: 'Updated successfully' })
             }
         });
     });
 }
 
 exports.user_email_delete = function (req, res) {
-    checkAdmin(req, res, (req, res) => {
+    utils.checkAdmin(req, res, (req, res) => {
         User.findOneAndRemove({ email: req.body.email }, function (err, doc) {
             if (err) {
-                res.send({ status: "error", message: `An error occured. ${err.message && err.message}` })
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
                 return;
             } else {
-                res.send({ status: "success", message: 'Deleted successfully' });
+                res.send({ status: 'success', message: 'Deleted successfully' });
             }
         })
     });
 };
 
 exports.user_delete = function (req, res) {
-    checkAdmin(req, res, (req, res) => {
+    utils.checkAdmin(req, res, (req, res) => {
         User.findByIdAndRemove(req.params.id, function (err) {
             if (err) {
-                res.send({ status: "error", message: `An error occured. ${err.message && err.message}` })
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
                 return;
             } else {
-                res.send({ status: "success", message: 'Deleted successfully' });
+                res.send({ status: 'success', message: 'Deleted successfully' });
             }
         })
     });
 };
-
-var checkAdmin = (req, res, callback) => {
-    if (req.body.adminId && req.body.adminId) {
-        User.findById(req.body.adminId, (err, doc) => {
-            if (err) {
-                res.send({ status: "error", message: `An error occured. ${err.message && err.message}` });
-                return;
-            } else {
-                if (doc) {
-                    if (doc.admin) {
-                        callback(req, res);
-                    } else {
-                        res.send({ status: "error", message: 'Not allowed' });
-                    }
-                } else {
-                    res.send({ status: "error", message: 'Not found' });
-                }
-            }
-        });
-    } else {
-        res.send({ status: "error", message: 'Not admin' });
-    }
-}
