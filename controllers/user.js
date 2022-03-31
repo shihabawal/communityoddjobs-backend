@@ -23,7 +23,7 @@ exports.user_create = async function (req, res) {
         created: new Date()
     });
 
-    user.save(function (err,doc) {
+    user.save(function (err, doc) {
         if (err) {
             res.send(`An error occured. ${err.message && err.message}`)
             return;
