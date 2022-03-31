@@ -1,4 +1,3 @@
-const { request } = require('express');
 var User = require('../models/user');
 
 //Simple version, without validation or sanitation
@@ -9,8 +8,6 @@ exports.test = function (req, res) {
 exports.user_create = async function (req, res) {
     // check if user exists and wait
     var email = await User.findOne({ email: req.body.email }).exec();
-
-    // if exists send message and return
     if (email) {
         res.send('Email already exists');
         return;
@@ -26,12 +23,12 @@ exports.user_create = async function (req, res) {
         created: new Date()
     });
 
-    user.save(function (err) {
+    user.save(function (err,doc) {
         if (err) {
             res.send(`An error occured. ${err.message && err.message}`)
             return;
         } else {
-            res.send('User created successfully');
+            res.send(doc);
         }
     });
 }
