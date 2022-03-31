@@ -10,7 +10,7 @@ router.get('/test', listing_controller.test);
 router.get('/:id', listing_controller.listing_view);
 
 // view range of listing
-router.post('/', listing_controller.listing_view_range);
+router.get('/', listing_controller.listing_view_range);
 
 // create new listing
 router.post('/create', listing_controller.listing_create);
