@@ -15,10 +15,13 @@ router.post('/:id/apply', listing_controller.listing_apply);
 // approve the listing application
 router.post('/:id/approve', listing_controller.listing_application_approve);
 
+// reject the listing application
+router.post('/:id/reject', listing_controller.listing_application_reject);
+
 // view range of listing
 router.get('/', listing_controller.listing_view_range);
 
-// view range of listing
+// search for listing
 router.post('/search', listing_controller.listing_search);
 
 // create new listing

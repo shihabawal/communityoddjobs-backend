@@ -28,7 +28,7 @@ exports.listing_apply = function (req, res) {
             return;
         } else {
             if (doc) {
-                if (doc.status === 'unapplied') {
+                if (doc.status === 'new' || doc.status === 'unapplied') {
                     JobListing.findOneAndUpdate({ _id: req.params.id },
                         {
                             status: 'applied',
@@ -76,6 +76,42 @@ exports.listing_application_approve = function (req, res) {
                             })
                     } else if (doc.status === 'approved') {
                         res.send({ status: 'error', message: 'Already approved' });
+                    } else {
+                        res.send({ status: 'error', message: 'Listing not applied for' });
+                    }
+                }
+                else {
+                    res.send({ status: 'error', message: 'Not found' });
+                }
+            }
+        })
+
+    });
+};
+
+exports.listing_application_reject = function (req, res) {
+    utils.checkAdmin(req, res, (req, res) => {
+        JobListing.findById(req.params.id, function (err, doc) {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                return;
+            } else {
+                if (doc) {
+                    if (doc.status === 'applied') {
+                        JobListing.findOneAndUpdate({ _id: req.params.id },
+                            {
+                                status: 'unapplied',
+                                $unset: { applicant: '' }
+                            },
+                            function (err) {
+                                if (err) {
+                                    res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                                } else {
+                                    res.send({ status: 'success', message: 'Rejected successfully' })
+                                }
+                            })
+                    } else if (doc.status === 'unapplied') {
+                        res.send({ status: 'error', message: 'Already rejected' });
                     } else {
                         res.send({ status: 'error', message: 'Listing not applied for' });
                     }
