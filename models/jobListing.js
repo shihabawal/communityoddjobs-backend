@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const UserSchema = require('./user').userSchema;
 var Schema = mongoose.Schema;
 
 var JobListingSchema = new Schema({
@@ -9,7 +10,9 @@ var JobListingSchema = new Schema({
     location: { type: String },
     dateOfService: { type: Date },
     ratePerHour: { type: Number },
-    created: { type: Date, required: true }
+    created: { type: Date, required: true },
+    status: { type: String, required: true },
+    applicant: { type: UserSchema }
 });
 
 module.exports = mongoose.model('JobListing', JobListingSchema);

@@ -1,4 +1,4 @@
-var User = require('../models/user');
+var User = require('../models/user').User;
 var utils = require('./utils');
 
 //Simple version, without validation or sanitation

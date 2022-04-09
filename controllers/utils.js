@@ -1,4 +1,4 @@
-var User = require('../models/user');
+var User = require('../models/user').User;
 
 exports.checkAdmin = (req, res, callback) => {
     if (req.body.adminId && req.body.adminId) {

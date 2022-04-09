@@ -21,6 +21,39 @@ exports.listing_view = function (req, res) {
     })
 };
 
+exports.listing_apply = function (req, res) {
+    JobListing.findById(req.params.id, function (err, doc) {
+        if (err) {
+            res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+            return;
+        } else {
+            if (doc) {
+                if (doc.status === 'unapplied') {
+                    JobListing.findOneAndUpdate({ _id: req.params.id },
+                        {
+                            status: 'applied',
+                            applicant: {
+                                ...req.body
+                            }
+                        },
+                        function (err) {
+                            if (err) {
+                                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                            } else {
+                                res.send({ status: 'success', message: 'Applied successfully' })
+                            }
+                        })
+                } else {
+                    res.send({ status: 'error', message: 'Listing unavailable' });
+                }
+            }
+            else {
+                res.send({ status: 'error', message: 'Not found' });
+            }
+        }
+    })
+};
+
 exports.listing_view_range = function (req, res) {
     JobListing.find({}, function (err, doc) {
         if (err) {
@@ -45,7 +78,8 @@ exports.listing_create = function (req, res) {
             location: req.body.location,
             dateOfService: req.body.dateOfService,
             ratePerHour: req.body.ratePerHour,
-            created: new Date()
+            created: new Date(),
+            status: "unapplied"
         });
 
         listing.save(function (err, doc) {

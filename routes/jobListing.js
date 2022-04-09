@@ -9,6 +9,9 @@ router.get('/test', listing_controller.test);
 // view one listing
 router.get('/:id', listing_controller.listing_view);
 
+// apply for the listing
+router.post('/:id/apply', listing_controller.listing_apply);
+
 // view range of listing
 router.get('/', listing_controller.listing_view_range);
 
