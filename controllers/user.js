@@ -21,7 +21,8 @@ exports.user_create = async function (req, res) {
         email: req.body.email,
         password: req.body.password,
         admin: false,
-        created: new Date()
+        created: new Date(),
+        notifications: []
     });
 
     user.save(function (err, doc) {
@@ -120,4 +121,16 @@ exports.user_delete = function (req, res) {
             }
         })
     });
+};
+
+exports.user_clear_notifications = function (req, res) {
+    User.findOneAndUpdate({ email: req.body.email },
+        { notifications: [] }
+        , function (err) {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+            } else {
+                res.send({ status: 'success', message: 'Cleared all notifications' })
+            }
+        })
 };

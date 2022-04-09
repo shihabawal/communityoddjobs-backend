@@ -24,4 +24,7 @@ router.delete('/delete', user_controller.user_email_delete);
 // delete by id
 router.delete('/:id/delete', user_controller.user_delete);
 
+// user clear notifications
+router.post('/clearnotifications', user_controller.user_clear_notifications);
+
 module.exports = router;
