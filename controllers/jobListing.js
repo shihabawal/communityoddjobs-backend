@@ -98,7 +98,23 @@ exports.listing_view_range = function (req, res) {
                 return;
             } else {
                 if (doc)
-                    res.send({ status: 'success', message: 'Listing found', data: doc });
+                    res.send({ status: 'success', message: 'Listings found', data: doc });
+                else
+                    res.send({ status: 'success', message: 'Not found' });
+            }
+        })
+};
+
+exports.listing_search = function (req, res) {
+    const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `.*${req.body.searchString}.*`)
+    query.find({},
+        function (err, doc) {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                return;
+            } else {
+                if (doc)
+                    res.send({ status: 'success', message: 'Listings found', data: doc });
                 else
                     res.send({ status: 'success', message: 'Not found' });
             }

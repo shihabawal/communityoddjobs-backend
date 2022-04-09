@@ -18,6 +18,9 @@ router.post('/:id/approve', listing_controller.listing_application_approve);
 // view range of listing
 router.get('/', listing_controller.listing_view_range);
 
+// view range of listing
+router.post('/search', listing_controller.listing_search);
+
 // create new listing
 router.post('/create', listing_controller.listing_create);
 
