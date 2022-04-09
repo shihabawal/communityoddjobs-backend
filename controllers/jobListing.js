@@ -55,17 +55,19 @@ exports.listing_apply = function (req, res) {
 };
 
 exports.listing_view_range = function (req, res) {
-    JobListing.find({}, function (err, doc) {
-        if (err) {
-            res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
-            return;
-        } else {
-            if (doc)
-                res.send({ status: 'success', message: 'Listing found', data: doc });
-            else
-                res.send({ status: 'success', message: 'Not found' });
-        }
-    })
+    const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }])
+    query.find({},
+        function (err, doc) {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                return;
+            } else {
+                if (doc)
+                    res.send({ status: 'success', message: 'Listing found', data: doc });
+                else
+                    res.send({ status: 'success', message: 'Not found' });
+            }
+        })
 };
 
 exports.listing_create = function (req, res) {
@@ -79,7 +81,7 @@ exports.listing_create = function (req, res) {
             dateOfService: req.body.dateOfService,
             ratePerHour: req.body.ratePerHour,
             created: new Date(),
-            status: "unapplied"
+            status: 'new'
         });
 
         listing.save(function (err, doc) {
