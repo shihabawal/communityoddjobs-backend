@@ -15,4 +15,5 @@ var JobListingSchema = new Schema({
     applicant: { type: UserSchema }
 });
 
-module.exports = mongoose.model('JobListing', JobListingSchema);
+exports.jobListingSchema = JobListingSchema
+exports.jobListing = mongoose.model('JobListing', JobListingSchema);

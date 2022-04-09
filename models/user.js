@@ -9,6 +9,14 @@ var AddressSchema = new Schema({
     line1: { type: String, required: true },
 });
 
+var NotificationsSchema = new Schema({
+    // listing: {},
+    type: { type: String, require: true },
+    title: { type: String, require: true },
+    message: { type: String, require: true },
+    created: { type: Date }
+})
+
 var UserSchema = new Schema({
     name: { type: String, required: true },
     address: { type: AddressSchema, required: true },
@@ -16,7 +24,8 @@ var UserSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     admin: { type: Boolean, required: true },
-    created: { type: Date, required: true }
+    created: { type: Date, required: true },
+    notifications: [NotificationsSchema]
 });
 
 

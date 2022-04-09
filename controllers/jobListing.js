@@ -1,4 +1,5 @@
-var JobListing = require('../models/jobListing');
+var JobListing = require('../models/jobListing').jobListing;
+var User = require('../models/user').User;
 var utils = require('../controllers/utils');
 
 //Simple version, without validation or sanitation
@@ -21,28 +22,47 @@ exports.listing_view = function (req, res) {
     })
 };
 
-exports.listing_apply = function (req, res) {
-    JobListing.findById(req.params.id, function (err, doc) {
+exports.listing_apply = async function (req, res) {
+    const user = await User.find({ email: req.body.email }).exec();
+    // check if user exists
+    if (!user) {
+        res.send({ status: 'error', message: 'Not a user' });
+        return;
+    }
+    JobListing.findById(req.params.id, async function (err, doc) {
         if (err) {
             res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
             return;
         } else {
             if (doc) {
                 if (doc.status === 'new' || doc.status === 'unapplied') {
-                    JobListing.findOneAndUpdate({ _id: req.params.id },
+                    var listing = await JobListing.findOneAndUpdate({ _id: req.params.id },
                         {
                             status: 'applied',
                             applicant: {
                                 ...req.body
                             }
-                        },
-                        function (err) {
-                            if (err) {
-                                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
-                            } else {
-                                res.send({ status: 'success', message: 'Applied successfully' })
+                        }).exec()
+                    if (!listing) {
+                        res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                        return;
+                    }
+                    var user = await User.findOneAndUpdate({ email: req.body.email },
+                        {
+                            $push: {
+                                notifications: {
+                                    type: 'application',
+                                    title: 'Job application',
+                                    message: `You have applied for "${listing.title}"`,
+                                    created: Date()
+                                }
                             }
-                        })
+                        }).exec();
+                    if (!user) {
+                        res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                        return;
+                    }
+                    res.send({ status: 'success', message: 'Applied successfully' })
                 } else {
                     res.send({ status: 'error', message: 'Listing unavailable' });
                 }
@@ -67,10 +87,26 @@ exports.listing_application_approve = function (req, res) {
                             {
                                 status: 'approved',
                             },
-                            function (err) {
+                            async function (err) {
                                 if (err) {
                                     res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
                                 } else {
+                                    var user = await User.findOneAndUpdate(
+                                        { email: doc.applicant.email },
+                                        {
+                                            $push: {
+                                                notifications: {
+                                                    type: 'acceptance',
+                                                    title: 'Job application accepted',
+                                                    message: `You have been accepted for "${doc.title}"`,
+                                                    created: Date()
+                                                }
+                                            }
+                                        }
+                                    ).exec()
+                                    if (!user) {
+                                        res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                                    }
                                     res.send({ status: 'success', message: 'Approved successfully' })
                                 }
                             })
@@ -103,10 +139,26 @@ exports.listing_application_reject = function (req, res) {
                                 status: 'unapplied',
                                 $unset: { applicant: '' }
                             },
-                            function (err) {
+                            async function (err) {
                                 if (err) {
                                     res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
                                 } else {
+                                    var user = await User.findOneAndUpdate(
+                                        { email: doc.applicant.email },
+                                        {
+                                            $push: {
+                                                notifications: {
+                                                    type: 'rejection',
+                                                    title: 'Job application rejected',
+                                                    message: `You have been rejected for "${doc.title}"`,
+                                                    created: Date()
+                                                }
+                                            }
+                                        }
+                                    ).exec()
+                                    if (!user) {
+                                        res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                                    }
                                     res.send({ status: 'success', message: 'Rejected successfully' })
                                 }
                             })
