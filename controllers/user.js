@@ -130,7 +130,7 @@ exports.user_clear_notifications = function (req, res) {
             if (err) {
                 res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
             } else {
-                res.send({ status: 'success', message: 'Cleared all notifications' })
+                res.send({ status: 'success', message: 'Cleared all notifications. Login again' })
             }
         })
 };
