@@ -211,6 +211,25 @@ exports.listing_search = function (req, res) {
         })
 };
 
+exports.listing_applications = function (req, res) {
+    // const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `/.*${req.body.searchString}.*/i`)
+    JobListing.find({
+        status: 'applied',
+        'title': { $regex: `.*${req.body.searchString}.*`, $options: 'i' }
+    },
+        function (err, doc) {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
+                return;
+            } else {
+                if (doc)
+                    res.send({ status: 'success', message: 'Applications found', data: doc });
+                else
+                    res.send({ status: 'success', message: 'Not found' });
+            }
+        })
+};
+
 exports.listing_create = function (req, res) {
     utils.checkAdmin(req, res, (req, res) => {
         var listing = new JobListing({

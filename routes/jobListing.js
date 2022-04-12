@@ -24,6 +24,9 @@ router.get('/', listing_controller.listing_view_range);
 // search for listing
 router.post('/search', listing_controller.listing_search);
 
+// search for listing applications
+router.post('/applications', listing_controller.listing_applications);
+
 // create new listing
 router.post('/create', listing_controller.listing_create);
 
