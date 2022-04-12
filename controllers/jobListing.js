@@ -7,7 +7,6 @@ exports.test = function (req, res) {
     res.send({ status: 'success', message: 'Greetings from the Listing controller!' });
 };
 
-
 exports.listing_view = function (req, res) {
     JobListing.findById(req.params.id, function (err, doc) {
         if (err) {
@@ -194,8 +193,11 @@ exports.listing_view_range = function (req, res) {
 };
 
 exports.listing_search = function (req, res) {
-    const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `.*${req.body.searchString}.*`)
-    query.find({},
+    // const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `/.*${req.body.searchString}.*/i`)
+    JobListing.find({
+        $or: [{ status: 'new' }, { status: 'unapplied' }],
+        'title': { $regex: `.*${req.body.searchString}.*`, $options: 'i' }
+    },
         function (err, doc) {
             if (err) {
                 res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` })
