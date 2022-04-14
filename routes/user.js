@@ -6,6 +6,9 @@ var user_controller = require('../controllers/user');
 // test 
 router.get('/test', user_controller.test);
 
+// Get all users
+router.post('/get', user_controller.get_all_users);
+
 // create new user
 router.post('/create', user_controller.user_create);
 

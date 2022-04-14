@@ -6,6 +6,31 @@ exports.test = function (req, res) {
     res.send({ status: 'success', message: 'Greetings from the User controller!' });
 };
 
+exports.get_all_users = function (req, res) {
+    utils.checkAdmin(req, res, (req, res) => {
+        User.find({}, (err, doc) => {
+            if (err) {
+                res.send({ status: 'error', message: `An error occured. ${err.message && err.message}` });
+                return;
+            } else {
+                // if email found ... 
+                if (doc) {
+                    // ... check password
+                    if (doc.password === req.body.password) {
+                        // if correct return user details
+                        res.send({ status: 'success', message: 'Found users', data: doc });
+                    } else {
+                        res.send({ status: 'error', message: 'Incorrect email or password' });
+                    }
+                } else {
+                    res.send({ status: 'error', message: 'Incorrect email or password' });
+                }
+            }
+        })
+
+    });
+}
+
 exports.user_create = async function (req, res) {
     // check if user exists and wait
     var email = await User.findOne({ email: req.body.email }).exec();
