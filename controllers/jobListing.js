@@ -247,7 +247,10 @@ exports.listing_search = function (req, res) {
     JobListing.find(
         {
             $or: [{ status: "new" }, { status: "unapplied" }],
-            metaTags: { $regex: `.*${searchString}.*`, $options: "i" },
+            $or: [
+                { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
+                { location: { $regex: `.*${searchString}.*`, $options: "i" } }
+            ]
         },
         function (err, doc) {
             if (err) {
