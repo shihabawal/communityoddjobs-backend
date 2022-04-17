@@ -276,17 +276,27 @@ exports.listing_applications = function (req, res) {
     var searchWords = req.body.searchString.split(" ");
     let searchString = "";
     searchWords.forEach((el, i) => { searchString += `${(i === 0) ? "" : "|"}(${el})` });
+    var queryString = {
+        $and: [
+            { status: "applied" },
+            {
+                $or: [
+                    { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
+                    { location: { $regex: `.*${searchString}.*`, $options: "i" } }
+                ]
+            }
+        ]
+    }
+    if (req.body.startDate) {
+        queryString.$and.push({ dateOfService: { $gt: req.body.startDate && req.body.startDate } })
+    }
+    if (req.body.stopDate) {
+        queryString.$and.push({ dateOfService: { $lt: req.body.stopDate && req.body.stopDate } })
+    }
+
     JobListing.find(
         {
-            $and: [
-                { status: "applied" },
-                {
-                    $or: [
-                        { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
-                        { location: { $regex: `.*${searchString}.*`, $options: "i" } }
-                    ]
-                }
-            ]
+            ...queryString
         },
         function (err, doc) {
             if (err) {
