@@ -12,7 +12,8 @@ var JobListingSchema = new Schema({
     ratePerHour: { type: Number },
     created: { type: Date, required: true },
     status: { type: String, required: true },
-    applicant: { type: UserSchema }
+    applicant: { type: UserSchema },
+    metaTags: { type: String, required: true }
 });
 
 exports.jobListingSchema = JobListingSchema

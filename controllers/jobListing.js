@@ -241,10 +241,13 @@ exports.listing_view_range = function (req, res) {
 
 exports.listing_search = function (req, res) {
     // const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `/.*${req.body.searchString}.*/i`)
+    var searchWords = req.body.searchString.split(" ");
+    let searchString = "";
+    searchWords.forEach((el, i) => { searchString += `${(i === 0) ? "" : "|"}(${el})` });
     JobListing.find(
         {
             $or: [{ status: "new" }, { status: "unapplied" }],
-            title: { $regex: `.*${req.body.searchString}.*`, $options: "i" },
+            metaTags: { $regex: `.*${searchString}.*`, $options: "i" },
         },
         function (err, doc) {
             if (err) {
