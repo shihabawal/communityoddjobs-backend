@@ -246,10 +246,14 @@ exports.listing_search = function (req, res) {
     searchWords.forEach((el, i) => { searchString += `${(i === 0) ? "" : "|"}(${el})` });
     JobListing.find(
         {
-            $or: [{ status: "new" }, { status: "unapplied" }],
-            $or: [
-                { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
-                { location: { $regex: `.*${searchString}.*`, $options: "i" } }
+            $and: [
+                { $or: [{ status: "new" }, { status: "unapplied" }] },
+                {
+                    $or: [
+                        { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
+                        { location: { $regex: `.*${searchString}.*`, $options: "i" } }
+                    ]
+                },
             ]
         },
         function (err, doc) {
@@ -269,11 +273,20 @@ exports.listing_search = function (req, res) {
 };
 
 exports.listing_applications = function (req, res) {
-    // const query = JobListing.where().or([{ status: 'new' }, { status: 'unapplied' }]).regex('title', `/.*${req.body.searchString}.*/i`)
+    var searchWords = req.body.searchString.split(" ");
+    let searchString = "";
+    searchWords.forEach((el, i) => { searchString += `${(i === 0) ? "" : "|"}(${el})` });
     JobListing.find(
         {
-            status: "applied",
-            title: { $regex: `.*${req.body.searchString}.*`, $options: "i" },
+            $and: [
+                { status: "applied" },
+                {
+                    $or: [
+                        { metaTags: { $regex: `.*${searchString}.*`, $options: "i" } },
+                        { location: { $regex: `.*${searchString}.*`, $options: "i" } }
+                    ]
+                }
+            ]
         },
         function (err, doc) {
             if (err) {
