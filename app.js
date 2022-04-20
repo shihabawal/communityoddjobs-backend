@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var cors = require('cors')
 
-const productRouter = require('./routes/product');
 const userRouter = require('./routes/user');
 const listingRouter = require('./routes/jobListing');
 
@@ -24,7 +23,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/product', productRouter);
 app.use('/user', userRouter);
 app.use('/listing', listingRouter);
 
