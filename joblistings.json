@@ -1,0 +1,569 @@
+[{
+  "_id": {
+    "$oid": "625176e8f3ee580580828cea"
+  },
+  "employerName": "Marry Ann",
+  "employerEmail": "a.marry@gmail.com",
+  "title": "Changing shower curtain",
+  "description": "Need someone to change my house light bulbs",
+  "location": "53.373346, -6.597727",
+  "dateOfService": {
+    "$date": "2022-05-24T00:00:00Z"
+  },
+  "ratePerHour": 10,
+  "created": {
+    "$date": "2022-04-09T12:07:04.972Z"
+  },
+  "status": "applied",
+  "__v": 0,
+  "metaTags": "",
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "6258036d5c92333f84825b5c"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:13Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625803705c92333f84825b65"
+        },
+        "type": "acceptance",
+        "title": "Job application accepted",
+        "message": "You have been accepted for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:16Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "6258043a5c92333f84825b6f"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-14T11:23:38Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625b76d9ecd95d586c359597"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-17T02:09:29Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625c621c2c4409315461a298"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Need a Friend as I am depressed\"",
+        "created": {
+          "$date": "2022-04-17T18:53:16Z"
+        }
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "62519fa1daa7995148d27147"
+  },
+  "employerName": "Marry Ann",
+  "employerEmail": "a.marry@gmail.com",
+  "title": "Changing light bulbs",
+  "description": "Need someone to change my house light bulbs",
+  "location": "53.373346, -6.597727",
+  "dateOfService": {
+    "$date": "2022-05-31T00:00:00Z"
+  },
+  "ratePerHour": 10,
+  "created": {
+    "$date": "2022-04-09T15:00:49.298Z"
+  },
+  "status": "unapplied",
+  "__v": 0,
+  "metaTags": "household,electrical,electrician,errand,renovation"
+},{
+  "_id": {
+    "$oid": "62519feadaa7995148d2714b"
+  },
+  "employerName": "Jane Dawson",
+  "employerEmail": "a.marry@gmail.com",
+  "title": "Doing groceries",
+  "description": "Need someone to do my groceries sometimes",
+  "location": "53.373346, -6.597727",
+  "dateOfService": {
+    "$date": "2022-05-31T00:00:00Z"
+  },
+  "ratePerHour": 100,
+  "created": {
+    "$date": "2022-04-09T15:02:02.512Z"
+  },
+  "status": "unapplied",
+  "__v": 0,
+  "metaTags": "household,part,time,groceries"
+},{
+  "_id": {
+    "$oid": "6253ff6a2db87c8114cbc3bd"
+  },
+  "employerName": "Hemanth",
+  "employerEmail": "hemanth.infosys@gmail.com",
+  "title": "Kkk",
+  "description": "LIbbb",
+  "location": "Maynooth",
+  "dateOfService": {
+    "$date": "2022-04-13T00:00:00Z"
+  },
+  "ratePerHour": 10,
+  "created": {
+    "$date": "2022-04-11T10:14:02.002Z"
+  },
+  "status": "approved",
+  "__v": 0,
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "62560028da25281f7cdd6407"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-12T22:41:44Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "6257ffbf5c92333f84825a82"
+        },
+        "type": "acceptance",
+        "title": "Job application accepted",
+        "message": "You have been accepted for \"Part-time boyfriend\"",
+        "created": {
+          "$date": "2022-04-14T11:04:31Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "6257fff05c92333f84825aad"
+        },
+        "type": "acceptance",
+        "title": "Job application accepted",
+        "message": "You have been accepted for \"ssg\"",
+        "created": {
+          "$date": "2022-04-14T11:05:20Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625801005c92333f84825ae9"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-14T11:09:52Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625801025c92333f84825af8"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Doing groceries\"",
+        "created": {
+          "$date": "2022-04-14T11:09:54Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625801045c92333f84825b05"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:09:56Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625801075c92333f84825b17"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:09:59Z"
+        }
+      }
+    ]
+  },
+  "metaTags": ""
+},{
+  "_id": {
+    "$oid": "62540e372db87c8114cbc3c7"
+  },
+  "employerName": "Hemanth",
+  "employerEmail": "hemanth@nexturntech.com",
+  "title": "ssg",
+  "description": "sg",
+  "location": "sgsg",
+  "dateOfService": {
+    "$date": "2022-04-13T00:00:00Z"
+  },
+  "ratePerHour": 10,
+  "created": {
+    "$date": "2022-04-11T11:17:11.106Z"
+  },
+  "status": "approved",
+  "__v": 0,
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": []
+  },
+  "metaTags": ""
+},{
+  "_id": {
+    "$oid": "62556c7f3a1425612423696b"
+  },
+  "employerName": "Dr. Wong",
+  "employerEmail": "wong@wong.xyz",
+  "title": "Part-time boyfriend",
+  "description": "Good looking (eddie)",
+  "location": "Eddie's house",
+  "dateOfService": {
+    "$date": "2022-04-12T00:00:00Z"
+  },
+  "ratePerHour": 1,
+  "created": {
+    "$date": "2022-04-12T12:11:43.835Z"
+  },
+  "status": "approved",
+  "__v": 0,
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "62556bbc3a14256124236965"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Doing groceries\"",
+        "created": {
+          "$date": "2022-04-12T12:08:28Z"
+        }
+      }
+    ]
+  },
+  "metaTags": ""
+},{
+  "_id": {
+    "$oid": "6257f35f5c92333f848259d4"
+  },
+  "employerName": "Chinton",
+  "employerEmail": "clinton@gmail.com",
+  "title": "Fishing partner",
+  "description": "Looking for a fishing buddy to pass time",
+  "location": "Ashbourne",
+  "dateOfService": {
+    "$date": "2022-04-22T00:00:00Z"
+  },
+  "ratePerHour": 20,
+  "created": {
+    "$date": "2022-04-14T10:11:43.320Z"
+  },
+  "status": "applied",
+  "__v": 0,
+  "metaTags": "fishing,partner,group,outdoor,hunting",
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "6258036d5c92333f84825b5c"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:13Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625803705c92333f84825b65"
+        },
+        "type": "acceptance",
+        "title": "Job application accepted",
+        "message": "You have been accepted for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:16Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "6258043a5c92333f84825b6f"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-14T11:23:38Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625b76d9ecd95d586c359597"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-17T02:09:29Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625c621c2c4409315461a298"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Need a Friend as I am depressed\"",
+        "created": {
+          "$date": "2022-04-17T18:53:16Z"
+        }
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "6257fc7f49a129562061a51e"
+  },
+  "employerName": "Chinton",
+  "employerEmail": "clinton@gmail.com",
+  "title": "Fishing partner",
+  "description": "Looking for a fishing buddy to pass time",
+  "location": "Ashbourne",
+  "dateOfService": {
+    "$date": "2022-04-15T00:00:00Z"
+  },
+  "ratePerHour": 22,
+  "created": {
+    "$date": "2022-04-14T10:50:39.049Z"
+  },
+  "status": "new",
+  "__v": 0,
+  "metaTags": "fishing,partner,group,outdoor,hunting"
+},{
+  "_id": {
+    "$oid": "6258014c49a129562061a524"
+  },
+  "employerName": "Hemanth",
+  "employerEmail": "hemanth.meenakshi.sundaram@gmail.com",
+  "title": "Need a Friend as I am depressed",
+  "description": "Paid promptly",
+  "location": "Maynooth",
+  "dateOfService": {
+    "$date": "2022-04-22T00:00:00Z"
+  },
+  "ratePerHour": 30,
+  "created": {
+    "$date": "2022-04-14T11:11:08.240Z"
+  },
+  "status": "applied",
+  "__v": 0,
+  "metaTags": "friend,company",
+  "applicant": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c6"
+    },
+    "name": "Mohammad Shihab Awal",
+    "address": {
+      "_id": {
+        "$oid": "62461519e0e03861f43a14c7"
+      },
+      "line1": "Juniper 4",
+      "city": "Maynooth",
+      "state": "Kildate",
+      "country": "Ireland",
+      "zip": "W23H6C8"
+    },
+    "contact": 353873475108,
+    "email": "shihabawal0007@gmail.com",
+    "password": "shihabawal",
+    "admin": false,
+    "created": {
+      "$date": "2022-03-31T20:54:49.146Z"
+    },
+    "__v": 0,
+    "notifications": [
+      {
+        "_id": {
+          "$oid": "6258036d5c92333f84825b5c"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:13Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625803705c92333f84825b65"
+        },
+        "type": "acceptance",
+        "title": "Job application accepted",
+        "message": "You have been accepted for \"Kkk\"",
+        "created": {
+          "$date": "2022-04-14T11:20:16Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "6258043a5c92333f84825b6f"
+        },
+        "type": "application",
+        "title": "Job application",
+        "message": "You have applied for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-14T11:23:38Z"
+        }
+      },
+      {
+        "_id": {
+          "$oid": "625b76d9ecd95d586c359597"
+        },
+        "type": "rejection",
+        "title": "Job application rejected",
+        "message": "You have been rejected for \"Changing light bulbs\"",
+        "created": {
+          "$date": "2022-04-17T02:09:29Z"
+        }
+      }
+    ]
+  }
+}]

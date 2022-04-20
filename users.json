@@ -1,0 +1,367 @@
+[{
+  "_id": {
+    "$oid": "6245ce759df59b7b1497d7b0"
+  },
+  "name": "Hemant Meenakshi Sundaram",
+  "address": {
+    "_id": {
+      "$oid": "6245ce759df59b7b1497d7b1"
+    },
+    "line1": "Kolathur, Chennai",
+    "city": "Dublin",
+    "state": "Tamilnadu",
+    "country": "Ireland",
+    "zip": "D15TW29"
+  },
+  "contact": 353899520799,
+  "email": "Hemanth@nexturntech.com",
+  "password": "123456",
+  "admin": false,
+  "created": {
+    "$date": "2022-03-31T15:53:25.967Z"
+  },
+  "__v": 0,
+  "notifications": [
+    {
+      "_id": {
+        "$oid": "62521721d9dbaf6894a3c9fb"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing shower curtains\"",
+      "created": {
+        "$date": "2022-04-09T23:30:41Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62521759d9dbaf6894a3c9ff"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing light bulbs\"",
+      "created": {
+        "$date": "2022-04-09T23:31:37Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62522ee7d9dbaf6894a3ca03"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing light bulbs\"",
+      "created": {
+        "$date": "2022-04-10T01:12:07Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62522f06d9dbaf6894a3ca07"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing light bulbs\"",
+      "created": {
+        "$date": "2022-04-10T01:12:38Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62522f10d9dbaf6894a3ca0b"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Doing groceries\"",
+      "created": {
+        "$date": "2022-04-10T01:12:48Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6258aacd8c5c6145d8c065d5"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Fishing partner\"",
+      "created": {
+        "$date": "2022-04-14T23:14:21Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6258ab0f8c5c6145d8c065df"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Need a Friend as I am depressed\"",
+      "created": {
+        "$date": "2022-04-14T23:15:27Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6258b3fc8c5c6145d8c0660b"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing shower curtain\"",
+      "created": {
+        "$date": "2022-04-14T23:53:32Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625b2c8b0cb8262b8c1052de"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Fishing partner\"",
+      "created": {
+        "$date": "2022-04-16T20:52:27Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625b76d5ecd95d586c35958c"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Changing shower curtain\"",
+      "created": {
+        "$date": "2022-04-17T02:09:25Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625b76dcecd95d586c3595a0"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Need a Friend as I am depressed\"",
+      "created": {
+        "$date": "2022-04-17T02:09:32Z"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6245f35b2356f65f242df69a"
+  },
+  "name": "Mohammad Shihab Awal",
+  "address": {
+    "_id": {
+      "$oid": "6245f35b2356f65f242df69b"
+    },
+    "line1": "Nuaimiya Towers B4 302",
+    "city": "Ajman",
+    "state": "Mr.",
+    "country": "United Arab Emirates",
+    "zip": "18263"
+  },
+  "contact": 509145676,
+  "email": "testuser41@gmail.com",
+  "password": "shihabawal",
+  "admin": false,
+  "created": {
+    "$date": "2022-03-31T18:30:51.675Z"
+  },
+  "__v": 0,
+  "notifications": [
+    {
+      "_id": {
+        "$oid": "6255f191d767343cf49b26d2"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing shower curtains\"",
+      "created": {
+        "$date": "2022-04-12T21:39:29Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625801065c92333f84825b10"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Changing shower curtains\"",
+      "created": {
+        "$date": "2022-04-14T11:09:58Z"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "624606e38d77a630d4c4e8f6"
+  },
+  "name": "Mohammad Shihab Awal",
+  "address": {
+    "_id": {
+      "$oid": "624606fd8d77a630d4c4e8ff"
+    },
+    "line1": "Juniper 4",
+    "city": "Maynooth",
+    "state": "Kildate",
+    "country": "Ireland",
+    "zip": "W23H6C8"
+  },
+  "contact": 353873475108,
+  "email": "shihabawal0008@gmail.com",
+  "password": "shihabawal",
+  "admin": true,
+  "created": {
+    "$date": "2022-03-31T19:54:11.879Z"
+  },
+  "__v": 0,
+  "notifications": []
+},{
+  "_id": {
+    "$oid": "62461519e0e03861f43a14c6"
+  },
+  "name": "Mohammad Shihab Awal",
+  "address": {
+    "_id": {
+      "$oid": "62461519e0e03861f43a14c7"
+    },
+    "line1": "Juniper 4",
+    "city": "Maynooth",
+    "state": "Kildate",
+    "country": "Ireland",
+    "zip": "W23H6C8"
+  },
+  "contact": 353873475108,
+  "email": "shihabawal0007@gmail.com",
+  "password": "shihabawal",
+  "admin": false,
+  "created": {
+    "$date": "2022-03-31T20:54:49.146Z"
+  },
+  "__v": 0,
+  "notifications": [
+    {
+      "_id": {
+        "$oid": "6258036d5c92333f84825b5c"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Kkk\"",
+      "created": {
+        "$date": "2022-04-14T11:20:13Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625803705c92333f84825b65"
+      },
+      "type": "acceptance",
+      "title": "Job application accepted",
+      "message": "You have been accepted for \"Kkk\"",
+      "created": {
+        "$date": "2022-04-14T11:20:16Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6258043a5c92333f84825b6f"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing light bulbs\"",
+      "created": {
+        "$date": "2022-04-14T11:23:38Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625b76d9ecd95d586c359597"
+      },
+      "type": "rejection",
+      "title": "Job application rejected",
+      "message": "You have been rejected for \"Changing light bulbs\"",
+      "created": {
+        "$date": "2022-04-17T02:09:29Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625c621c2c4409315461a298"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Need a Friend as I am depressed\"",
+      "created": {
+        "$date": "2022-04-17T18:53:16Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625c64cb289fb2500c726aca"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Fishing partner\"",
+      "created": {
+        "$date": "2022-04-17T19:04:43Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625c64d2289fb2500c726ad4"
+      },
+      "type": "application",
+      "title": "Job application",
+      "message": "You have applied for \"Changing shower curtain\"",
+      "created": {
+        "$date": "2022-04-17T19:04:50Z"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6254655c6f6a410a589e2efc"
+  },
+  "name": "Jackson Mule",
+  "address": {
+    "_id": {
+      "$oid": "6254655c6f6a410a589e2efd"
+    },
+    "line1": "Lucan, Dublin",
+    "city": "Dun Lore",
+    "state": "Dublin 8",
+    "country": "Ireland",
+    "zip": "W56F8G9"
+  },
+  "contact": 875455655,
+  "email": "jmule@gmail.com",
+  "password": "jmmule",
+  "admin": false,
+  "created": {
+    "$date": "2022-04-11T17:29:00.219Z"
+  },
+  "notifications": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6255ef9f647c4a3fe00e0e5c"
+  },
+  "name": "Maria Ayoub",
+  "address": {
+    "_id": {
+      "$oid": "6255ef9f647c4a3fe00e0e5d"
+    },
+    "line1": "433 railway cottages sallins",
+    "city": "Sallins",
+    "state": "Co. Kildare",
+    "country": "Ireland",
+    "zip": "W91 A5F6"
+  },
+  "contact": 858165815,
+  "email": "mariaayoub.se@gmail.com",
+  "password": "123456",
+  "admin": false,
+  "created": {
+    "$date": "2022-04-12T21:31:11.615Z"
+  },
+  "__v": 0
+}]
