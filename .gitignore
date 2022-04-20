@@ -1,5 +1,5 @@
 Design.~ml
 token
-.env
+package-lock.json
 node_modules/
 test.js
