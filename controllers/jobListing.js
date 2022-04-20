@@ -328,6 +328,7 @@ exports.listing_create = function (req, res) {
             location: req.body.location,
             dateOfService: req.body.dateOfService,
             ratePerHour: req.body.ratePerHour,
+            metaTags: req.body.metaTags,
             created: new Date(),
             status: "new",
         });
