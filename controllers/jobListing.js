@@ -288,10 +288,10 @@ exports.listing_applications = function (req, res) {
         ]
     }
     if (req.body.startDate) {
-        queryString.$and.push({ dateOfService: { $gt: req.body.startDate && req.body.startDate } })
+        queryString.$and.push({ dateOfService: { $gte: req.body.startDate && req.body.startDate } })
     }
     if (req.body.stopDate) {
-        queryString.$and.push({ dateOfService: { $lt: req.body.stopDate && req.body.stopDate } })
+        queryString.$and.push({ dateOfService: { $lte: req.body.stopDate && req.body.stopDate } })
     }
 
     JobListing.find(
